@@ -25,7 +25,7 @@
 %----------------------------------------------------------------------------------------
 
 \NeedsTeXFormat{LaTeX2e}
-\ProvidesClass{kaobook}[2021/08/23 v0.9.8 kaobook]
+\ProvidesClass{kaobook/kaobook}[2021/08/23 v0.9.8 kaobook]
 \newcommand{\@baseclass}{scrbook} % Base class name
 
 % Set the default options
@@ -41,7 +41,7 @@
 
 \LoadClass{\@baseclass} % Load the base class
 
-\RequirePackage{kao} % Load the code common to all classes
+\RequirePackage{kaobook/kao} % Load the code common to all classes
 
 %----------------------------------------------------------------------------------------
 %	FRONT-, MAIN-, BACK- MATTERS BEHAVIOUR
