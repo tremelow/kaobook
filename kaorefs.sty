@@ -12,6 +12,7 @@
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{varioref}}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{hyperref}}
 \DeclareOption*{\PassOptionsToPackage{\CurrentOption}{cleveref}}
+\DeclareOption*{\PassOptionsToPackage{\CurrentOption}{knowledge}}
 \ProcessOptions\relax
 
 \let\thmname\relax % Workaround to get rid of an annoying error
@@ -238,3 +239,10 @@
 % Set the refname for subsections
 \crefname{subsection}{\subsectionname}{\subsectionnameplural}
 \Crefname{subsection}{\subsectionname}{\subsectionnameplural}
+
+
+%----------------------------------------------------------------------------------------
+%	KNOWLEDGE PACKAGE
+%----------------------------------------------------------------------------------------
+
+\RequirePackage[silent]{knowledge}
