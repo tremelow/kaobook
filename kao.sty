@@ -663,7 +663,9 @@
 
 % Needed to have continued figures and tables (https://en.wikibooks.org/wiki/LaTeX/Floats,_Figures_and_Captions#Figures_in_multiple_parts)
 \DeclareCaptionLabelFormat{cont}{#1~#2\alph{ContinuedFloat}}
-\captionsetup[ContinuedFloat]{labelformat=cont}
+\renewcommand\theContinuedFloat{\alph{ContinuedFloat}}
+\newcommand{\LastFloat}{\setcounter{ContinuedFloat}{-1}\ContinuedFloat}
+
 
 % Captions for the 'margin' layout
 \NewDocumentCommand{\marginfloatsetup}{}{%
