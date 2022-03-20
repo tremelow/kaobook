@@ -19,7 +19,7 @@
 \RequirePackage{amsthm} % Needed by cleveref
 \RequirePackage{varioref}
 \RequirePackage{hyperref}
-\RequirePackage[capitalise,nameinlink,noabbrev]{cleveref}
+\RequirePackage[capitalise,noabbrev]{cleveref}
 
 
 %----------------------------------------------------------------------------------------
@@ -160,71 +160,71 @@
 \newcommand{\vrefpage}[1]{\vpageref*{page:#1}} % on the following page, on page 84
 
 % For unnumbered parts
-\newcommand{\arefpart}[1]{\hyperref[part:#1]{\partname}\xspace`\nameref{part:#1}'} % Part `Name of the Part'
-\newcommand{\avrefpart}[1]{\hyperref[part:#1]{\partname}\xspace`\nameref{part:#1}' \vpageref{part:#1}} % Part `Name of the Part' on page 84
+\newcommand{\arefpart}[1]{\partname\xspace`\nameref{part:#1}'} % Part `Name of the Part'
+\newcommand{\avrefpart}[1]{\partname\xspace`\nameref{part:#1}' \vpageref{part:#1}} % Part `Name of the Part' on page 84
 
 % For numbered parts
-\newcommand{\refpart}[1]{\hyperref[part:#1]{\partname}\xspace\ref{part:#1}} % Part IV
-\newcommand{\vrefpart}[1]{\hyperref[part:#1]{\partname}\xspace\vref{part:#1}} % Part IV, Part IV on the following page, Part IV on page 84
-\newcommand{\nrefpart}[1]{\hyperref[part:#1]{\partname}\xspace\ref{part:#1} (\nameref{part:#1})}
-\newcommand{\frefpart}[1]{\hyperref[part:#1]{\partname\xspace\ref{part:#1} (\nameref{part:#1}) \vpageref{part:#1}}} % Part IV (Name of the Part), Part IV (Name of the Part) on the following page, Part IV (Name of the Part) on page 84)
+\newcommand{\refpart}[1]{\partname\xspace\ref{part:#1}} % Part IV
+\newcommand{\vrefpart}[1]{\partname\xspace\vref{part:#1}} % Part IV, Part IV on the following page, Part IV on page 84
+\newcommand{\nrefpart}[1]{\partname\xspace\ref{part:#1} (\nameref{part:#1})}
+\newcommand{\frefpart}[1]{\partname\xspace\ref{part:#1} (\nameref{part:#1}) \vpageref{part:#1}} % Part IV (Name of the Part), Part IV (Name of the Part) on the following page, Part IV (Name of the Part) on page 84)
 
 %\newcommand{\refch}[1]{\hyperref[#1]{\chaptername\xspace\usekomafont{chapter}\normalsize\nameref{ch:#1}}\xspace\vpageref{ch:#1}\,}
-\newcommand{\refchshort}[1]{\hyperref[ch:#1]{\chapternameshort\xspace\ref{ch:#1}}}
-\newcommand{\refch}[1]{\hyperref[ch:#1]{\chaptername\xspace\ref{ch:#1}}}
-\newcommand{\vrefch}[1]{\hyperref[ch:#1]{\chaptername\xspace\ref{ch:#1} \vpageref{ch:#1}}}
-\newcommand{\nrefch}[1]{\hyperref[ch:#1]{\chaptername\xspace\ref{ch:#1} (\nameref{ch:#1})}}
-\newcommand{\frefch}[1]{\hyperref[ch:#1]{\chaptername\xspace\ref{ch:#1} (\nameref{ch:#1}) \vpageref{ch:#1}}}
+\newcommand{\refchshort}[1]{\chapternameshort\xspace\ref{ch:#1}}
+\newcommand{\refch}[1]{\chaptername\xspace\ref{ch:#1}}
+\newcommand{\vrefch}[1]{\chaptername\xspace\ref{ch:#1} \vpageref{ch:#1}}
+\newcommand{\nrefch}[1]{\chaptername\xspace\ref{ch:#1} (\nameref{ch:#1})}
+\newcommand{\frefch}[1]{\chaptername\xspace\ref{ch:#1} (\nameref{ch:#1}) \vpageref{ch:#1}}
 
 %\newcommand{\refsec}[1]{Section~{\usekomafont{section}\normalsize\nameref{sec:#1}}\xspace\vpageref{sec:#1}\,}
-\newcommand{\refsecshort}[1]{\hyperref[sec:#1]{\sectionnameshort\xspace\ref{sec:#1}}}
-\newcommand{\refsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1}}}
-\newcommand{\vrefsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\vref{sec:#1}}}
-\newcommand{\nrefsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1} (\nameref{sec:#1})}}
-\newcommand{\frefsec}[1]{\hyperref[sec:#1]{\sectionname\xspace\ref{sec:#1} (\nameref{sec:#1}) \vpageref{sec:#1}}}
+\newcommand{\refsecshort}[1]{\sectionnameshort\xspace\ref{sec:#1}}
+\newcommand{\refsec}[1]{\sectionname\xspace\ref{sec:#1}}
+\newcommand{\vrefsec}[1]{\sectionname\xspace\vref{sec:#1}}
+\newcommand{\nrefsec}[1]{\sectionname\xspace\ref{sec:#1} (\nameref{sec:#1})}
+\newcommand{\frefsec}[1]{\sectionname\xspace\ref{sec:#1} (\nameref{sec:#1}) \vpageref{sec:#1}}
 
-\newcommand{\refsubsecshort}[1]{\hyperref[subsec:#1]{\sectionnameshort\xspace\ref{subsec:#1}}}
-\newcommand{\refsubsec}[1]{\hyperref[subsec:#1]{\subsectionname\xspace\ref{subsec:#1}}}
-\newcommand{\vrefsubsec}[1]{\hyperref[subsec:#1]{\subsectionname\xspace\vref{subsec:#1}}}
-\newcommand{\nrefsubsec}[1]{\hyperref[subsec:#1]{\subsectionname\xspace\ref{subsec:#1} (\nameref{subsec:#1})}}
-\newcommand{\frefsubsec}[1]{\hyperref[subsec:#1]{\subsectionname\xspace\ref{subsec:#1} (\nameref{subsec:#1}) \vpageref{subsec:#1}}}
+\newcommand{\refsubsecshort}[1]{\sectionnameshort\xspace\ref{subsec:#1}}
+\newcommand{\refsubsec}[1]{\subsectionname\xspace\ref{subsec:#1}}
+\newcommand{\vrefsubsec}[1]{\subsectionname\xspace\vref{subsec:#1}}
+\newcommand{\nrefsubsec}[1]{\subsectionname\xspace\ref{subsec:#1} (\nameref{subsec:#1})}
+\newcommand{\frefsubsec}[1]{\subsectionname\xspace\ref{subsec:#1} (\nameref{subsec:#1}) \vpageref{subsec:#1}}
 
-%\newcommand{\reffig}[1]{{\hypersetup{colorlinks=false}\usekomafont{captionlabel}\hyperref[fig:#1]{Figure}\xspace\ref{fig:#1}}}
-\newcommand{\reffigshort}[1]{\hyperref[fig:#1]{\figurenameshort\xspace\ref{fig:#1}}}
-\newcommand{\reffig}[1]{\hyperref[fig:#1]{\figurename}\xspace\ref{fig:#1}}
-\newcommand{\vreffig}[1]{\hyperref[fig:#1]{\figurename\xspace\vref{fig:#1}}}
+%\newcommand{\reffig}[1]{{\hypersetup{colorlinks=false}\usekomafont{captionlabel}Figure}\xspace\ref{fig:#1}}
+\newcommand{\reffigshort}[1]{\figurenameshort\xspace\ref{fig:#1}}
+\newcommand{\reffig}[1]{\figurename\xspace\ref{fig:#1}}
+\newcommand{\vreffig}[1]{\figurename\xspace\vref{fig:#1}}
 
-%\newcommand{\reftab}[1]{{\hypersetup{colorlinks=false}\usekomafont{captionlabel}\hyperref[tab:#1]{Table}\xspace\ref{tab:#1}}}
-\newcommand{\reftab}[1]{\hyperref[tab:#1]{\tablename}\xspace\ref{tab:#1}}
-\newcommand{\vreftab}[1]{\hyperref[tab:#1]{\tablename\xspace\vref{tab:#1}}}
+%\newcommand{\reftab}[1]{{\hypersetup{colorlinks=false}\usekomafont{captionlabel}Table}\xspace\ref{tab:#1}}
+\newcommand{\reftab}[1]{\tablename\xspace\ref{tab:#1}}
+\newcommand{\vreftab}[1]{\tablename\xspace\vref{tab:#1}}
 
-% \newcommand{\refeqshort}[1]{\hyperref[eq:#1]\eqnameshort\xspace(\ref{eq:#1})}
-% \newcommand{\refeq}[1]{\hyperref[eq:#1]\eqname\xspace\ref{eq:#1}}
-% \newcommand{\vrefeq}[1]{\hyperref[eq:#1]\eqname\xspace\vref{eq:#1}}
+% \newcommand{\refeqshort}[1]{\eqnameshort\xspace(\ref{eq:#1})}
+% \newcommand{\refeq}[1]{\eqname\xspace\ref{eq:#1}}
+% \newcommand{\vrefeq}[1]{\eqname\xspace\vref{eq:#1}}
 
-\newcommand{\refdef}[1]{\hyperref[def:#1]\defname\xspace\ref{def:#1}}
-\newcommand{\vrefdef}[1]{\hyperref[def:#1]\defname\xspace\vref{def:#1}}
+\newcommand{\refdef}[1]{\defname\xspace\ref{def:#1}}
+\newcommand{\vrefdef}[1]{\defname\xspace\vref{def:#1}}
 
-\newcommand{\refassum}[1]{\hyperref[assum:#1]\assumname\xspace\ref{assum:#1}}
-\newcommand{\vrefassum}[1]{\hyperref[assum:#1]\assumname\xspace\vref{assum:#1}}
+\newcommand{\refassum}[1]{\assumname\xspace\ref{assum:#1}}
+\newcommand{\vrefassum}[1]{\assumname\xspace\vref{assum:#1}}
 
-\newcommand{\refthm}[1]{\hyperref[thm:#1]\thmname\xspace\ref{thm:#1}}
-\newcommand{\vrefthm}[1]{\hyperref[thm:#1]\thmname\xspace\vref{thm:#1}}
+\newcommand{\refthm}[1]{\thmname\xspace\ref{thm:#1}}
+\newcommand{\vrefthm}[1]{\thmname\xspace\vref{thm:#1}}
 
-\newcommand{\refprop}[1]{\hyperref[prop:#1]\propname\xspace\ref{prop:#1}}
-\newcommand{\vrefprop}[1]{\hyperref[prop:#1]\propname\xspace\vref{prop:#1}}
+\newcommand{\refprop}[1]{\propname\xspace\ref{prop:#1}}
+\newcommand{\vrefprop}[1]{\propname\xspace\vref{prop:#1}}
 
-\newcommand{\reflemma}[1]{\hyperref[lemma:#1]\lemmaname\xspace\ref{lemma:#1}}
-\newcommand{\vreflemma}[1]{\hyperref[lemma:#1]\lemmaname\xspace\vref{lemma:#1}}
+\newcommand{\reflemma}[1]{\lemmaname\xspace\ref{lemma:#1}}
+\newcommand{\vreflemma}[1]{\lemmaname\xspace\vref{lemma:#1}}
 
-\newcommand{\refremark}[1]{\hyperref[remark:#1]\remarkname\xspace\ref{remark:#1}}
-\newcommand{\vrefremark}[1]{\hyperref[remark:#1]\remarkname\xspace\vref{remark:#1}}
+\newcommand{\refremark}[1]{\remarkname\xspace\ref{remark:#1}}
+\newcommand{\vrefremark}[1]{\remarkname\xspace\vref{remark:#1}}
 
-\newcommand{\refexample}[1]{\hyperref[example:#1]\examplename\xspace\ref{example:#1}}
-\newcommand{\vrefexample}[1]{\hyperref[example:#1]\examplename\xspace\vref{example:#1}}
+\newcommand{\refexample}[1]{\examplename\xspace\ref{example:#1}}
+\newcommand{\vrefexample}[1]{\examplename\xspace\vref{example:#1}}
 
-\newcommand{\refexercise}[1]{\hyperref[exercise:#1]\exercisename\xspace\ref{exercise:#1}}
-\newcommand{\vrefexercise}[1]{\hyperref[exercise:#1]\exercisename\xspace\vref{exercise:#1}}
+\newcommand{\refexercise}[1]{\exercisename\xspace\ref{exercise:#1}}
+\newcommand{\vrefexercise}[1]{\exercisename\xspace\vref{exercise:#1}}
 
 %----------------------------------------------------------------------------------------
 %	CLEVEREF CUSTOMISATION
