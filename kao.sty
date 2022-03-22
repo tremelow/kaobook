@@ -973,6 +973,7 @@
 % Command to print a table of contents in the margin
 \NewDocumentCommand{\margintoc}{O{\mtocshift}}{ % The first parameter is the vertical offset; by default it is \mtocshift
 	\begingroup%
+    \hypersetup{allcolors=.}
 		% Move regular section and subsection to level 6 so that they won't be included and instead set let the mtoc versions take their place.
 		% Adapted from https://tex.stackexchange.com/a/133559/226693
 		\etocsetlevel{section}{6}
