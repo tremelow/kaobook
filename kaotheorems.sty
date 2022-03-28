@@ -192,6 +192,18 @@
 			%frametitlebackgroundcolor=\@theorembackground,
 		},
 	]{corollary}
+  \declaretheorem[
+		name=Property,
+		%refname={corollary,corollaries},
+		refname={Property,Properties},
+		Refname={Property,Properties},
+		sibling=theorem,
+		mdframed={
+			style=mdfkao,
+			backgroundcolor=\kaotheorems@corollarybackground,
+			%frametitlebackgroundcolor=\@theorembackground,
+		},
+	]{property}
 
 	% Theorems using the 'kaodefinition' style
 	\theoremstyle{kaodefinition}
