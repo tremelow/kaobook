@@ -278,5 +278,6 @@
 
 %\setcounter{secnumdepth}{\kao@secnumdepth} % Set section numbering depth
 
+\counterwithin*{sidenote}{part}
 \counterwithin*{sidenote}{chapter} % Uncomment to reset the sidenote counter at each chapter
 %\counterwithout{sidenote}{chapter} % Uncomment to have one sidenote counter for the whole document
