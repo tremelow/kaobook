@@ -78,6 +78,7 @@
 		headpunct={},
 		%postheadspace={.5em plus .1em minus .1em},
 		%prefoothook={\hfill\qedsymbol}
+    postheadspace=\newline,
 	]{kaoplain}
 	\declaretheoremstyle[
 		%spaceabove=.5\thm@preskip,
@@ -89,6 +90,7 @@
 		headpunct={},
 		postheadspace={.5em plus .1em minus .1em},
 		%prefoothook={\hfill\qedsymbol}
+    postheadspace=\newline,
 	]{kaodefinition}
 	\declaretheoremstyle[
 		%spaceabove=.5\thm@preskip,
@@ -100,6 +102,7 @@
 		headpunct={},
 		postheadspace={.5em plus .1em minus .1em},
 		%prefoothook={\hfill\qedsymbol}
+    postheadspace=\newline,
 	]{kaoassumption}
 	\declaretheoremstyle[
 		%spaceabove=.5\thm@preskip,
@@ -203,7 +206,7 @@
 			backgroundcolor=\kaotheorems@corollarybackground,
 			%frametitlebackgroundcolor=\@theorembackground,
 		},
-	]{property}
+  ]{property}
 
 	% Theorems using the 'kaodefinition' style
 	\theoremstyle{kaodefinition}
@@ -212,7 +215,7 @@
 		%refname={definition,definitions},
 		refname={Definition,Definitions},
 		Refname={Definition,Definitions},
-		numberwithin=chapter,
+    sibling=theorem,
 		mdframed={
 			style=mdfkao,
 			backgroundcolor=\kaotheorems@definitionbackground,
@@ -227,7 +230,7 @@
 		%refname={assumption,assumptions},
 		refname={Assumption,Assumptions},
 		Refname={Assumption,Assumptions},
-		numberwithin=chapter,
+    sibling=theorem,
 		mdframed={
 			style=mdfkao,
 			backgroundcolor=\kaotheorems@assumptionbackground,
@@ -242,8 +245,8 @@
 		%refname={remark,remarks},
 		refname={Remark,Remarks},
 		Refname={Remark,Remarks},
-		numberwithin=chapter,
-		mdframed={
+    sibling=theorem,
+    mdframed={
 			style=mdfkao,
 			backgroundcolor=\kaotheorems@remarkbackground,
 			%frametitlebackgroundcolor=\@theorembackground,
@@ -257,8 +260,8 @@
 		%refname={example,examples},
 		refname={Example,Examples},
 		Refname={Example,Examples},
-		numberwithin=chapter,
-		mdframed={
+    sibling=theorem,
+    mdframed={
 			style=mdfkao,
 			backgroundcolor=\kaotheorems@examplebackground,
 			%frametitlebackgroundcolor=\@theorembackground,
@@ -272,8 +275,8 @@
 		%refname={example,examples},
 		refname={Exercise,Exercises},
 		Refname={Exercise,Exercises},
-		numberwithin=chapter,
-		mdframed={
+    sibling=theorem,
+    mdframed={
 			style=mdfkao,
 			backgroundcolor=\kaotheorems@exercisebackground,
 			%frametitlebackgroundcolor=\@theorembackground,
