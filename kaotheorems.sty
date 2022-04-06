@@ -11,20 +11,21 @@
 }
 
 \DeclareBoolOption{framed}% If true, put theorems into colorful boxes, otherwise write them like normal text
+\DeclareBoolOption{boxed}
 
 % Define the options to finely tune the background color of each element.
 % If only the 'background' option is specified, all types of theorem will have that background. If more specific options are set, the previous option will be overwritten.
 \newcommand{\kaotheorems@defaultbg}{Goldenrod!45!white}
 \DeclareStringOption[\kaotheorems@defaultbg]{background}
-\DeclareStringOption[\kaotheorems@defaultbg]{theorembackground}
-\DeclareStringOption[\kaotheorems@defaultbg]{propositionbackground}
-\DeclareStringOption[\kaotheorems@defaultbg]{lemmabackground}
-\DeclareStringOption[\kaotheorems@defaultbg]{corollarybackground}
-\DeclareStringOption[\kaotheorems@defaultbg]{definitionbackground}
-\DeclareStringOption[\kaotheorems@defaultbg]{assumptionbackground}
-\DeclareStringOption[\kaotheorems@defaultbg]{remarkbackground}
-\DeclareStringOption[\kaotheorems@defaultbg]{examplebackground}
-\DeclareStringOption[\kaotheorems@defaultbg]{exercisebackground}
+\DeclareStringOption[\kaotheorems@background]{theorembackground}
+\DeclareStringOption[\kaotheorems@background]{propositionbackground}
+\DeclareStringOption[\kaotheorems@background]{lemmabackground}
+\DeclareStringOption[\kaotheorems@background]{corollarybackground}
+\DeclareStringOption[\kaotheorems@background]{definitionbackground}
+\DeclareStringOption[\kaotheorems@background]{assumptionbackground}
+\DeclareStringOption[\kaotheorems@background]{remarkbackground}
+\DeclareStringOption[\kaotheorems@background]{examplebackground}
+\DeclareStringOption[\kaotheorems@background]{exercisebackground}
 
 \ProcessKeyvalOptions{kaotheorems} % Process the options
 
@@ -32,6 +33,9 @@
 \RequirePackage{amsmath} % Improved mathematics
 \RequirePackage{amsthm} % Mathematical environments
 \RequirePackage{thmtools} % Theorem styles
+\RequirePackage[nothm]{thmbox} % Alternative theorem style
+\let\example\relax %Because thmbox fucks those up!?
+\let\examplename\relax
 
 %----------------------------------------------------------------------------------------
 %	STYLE DEFINITIONS
@@ -287,6 +291,108 @@
 	%\renewcommand{\thetheorem}{\arabic{subsection}.\arabic{theorem}}
 	%\renewcommand{\qedsymbol}{$\blacksquare$}
 \else % If not using mdframed
+\ifkaotheorems@boxed
+  % Theorem styles
+	\declaretheoremstyle[
+		spaceabove=.6\thm@preskip,
+		spacebelow=.1\thm@postskip,
+	]{kaoplain}
+
+	% Theorems using the 'kaoplain' style
+	\theoremstyle{kaoplain}
+  \setkeys{thmbox}{
+    style=S,
+    leftmargin=1em,
+    underline=false,
+    thickness=0.3pt,
+    headstyle=\textbf{#1 #2. },
+    titlestyle=#1,
+    bodystyle=,
+    }
+	\declaretheorem[
+		name=Theorem,
+		refname={theorem,theorems},
+		Refname={Theorem,Theorems},
+		numberwithin=chapter,
+    thmbox={},
+	]{theorem}
+	\declaretheorem[
+		name=Proposition,
+		refname={proposition,propositions},
+		Refname={Proposition,Propositions},
+		sibling=theorem,
+    thmbox={},
+	]{proposition}
+	\declaretheorem[
+		name=Lemma,
+		refname={lemma,lemmas},
+		Refname={Lemma,Lemmas},
+		sibling=theorem,
+    thmbox={},
+	]{lemma}
+	\declaretheorem[
+		name=Corollary,
+		refname={corollary,corollaries},
+		Refname={Corollary,Corollaries},
+		sibling=theorem,
+    thmbox={},
+	]{corollary}
+  \declaretheorem[
+		name=Property,
+		%refname={corollary,corollaries},
+		refname={Property,Properties},
+		Refname={Property,Properties},
+		sibling=theorem,
+    thmbox={},
+  ]{property}
+
+
+	\declaretheorem[
+		name=Definition,
+		refname={definition,definitions},
+		Refname={Definition,Definitions},
+		numberwithin=chapter,
+    sibling=theorem,
+    thmbox={},
+	]{definition}
+
+	\declaretheorem[
+		name=Assumption,
+		refname={Assumption,Assumptions},
+		Refname={Assumption,Assumptions},
+    sibling=theorem,
+    thmbox={},
+	]{assumption}
+
+	\declaretheorem[
+		name=Remark,
+		refname={remark,remarks},
+		Refname={Remark,Remarks},
+		numberwithin=chapter,
+    thmbox={},
+	]{remark}
+
+	\declaretheorem[
+		name=Example,
+		refname={example,examples},
+		Refname={Example,Examples},
+		numberwithin=chapter,
+	]{example}
+
+  \declaretheorem[
+		name=Exercise,
+		%refname={example,examples},
+		refname={Exercise,Exercises},
+		Refname={Exercise,Exercises},
+		numberwithin=chapter,
+		mdframed={
+			style=mdfkao,
+			backgroundcolor=\@exercisebackground,
+			%frametitlebackgroundcolor=\@theorembackground,
+		},
+	]{exercise}
+
+\else
 	% Theorem styles
 	\declaretheoremstyle[
 		spaceabove=.6\thm@preskip,
@@ -310,6 +416,17 @@
 		%postheadspace={.5em plus .1em minus .1em},
 		%prefoothook={\hfill\qedsymbol}
 	]{kaodefinition}
+  \declaretheoremstyle[
+		spaceabove=.6\thm@preskip,
+		spacebelow=.1\thm@postskip,
+		%headfont=\normalfont\bfseries,%\scshape,
+		%notefont=\normalfont, notebraces={ (}{)},
+		bodyfont=\normalfont\itshape,
+		%headformat={\NAME\space\NUMBER\space\NOTE},
+		headpunct={},
+		%postheadspace={.5em plus .1em minus .1em},
+		%prefoothook={\hfill\qedsymbol}
+	]{kaoassumption}
 	\declaretheoremstyle[
 		spaceabove=.6\thm@preskip,
 		spacebelow=.1\thm@postskip,
@@ -376,6 +493,13 @@
 		Refname={Corollary,Corollaries},
 		sibling=theorem,
 	]{corollary}
+  \declaretheorem[
+		name=Property,
+		%refname={corollary,corollaries},
+		refname={Property,Properties},
+		Refname={Property,Properties},
+		sibling=theorem,
+  ]{property}
 
 	% Theorems using the 'kaodefinition' style
 	\theoremstyle{kaodefinition}
@@ -385,6 +509,15 @@
 		Refname={Definition,Definitions},
 		numberwithin=chapter,
 	]{definition}
+
+  % Theorems using the 'kaoassumption' style
+	\theoremstyle{kaoassumption}
+	\declaretheorem[
+		name=Assumption,
+		refname={Assumption,Assumptions},
+		Refname={Assumption,Assumptions},
+    sibling=theorem,
+	]{assumption}
 
 	% Theorems using the 'kaoremark' style
 	\theoremstyle{kaoremark}
@@ -422,5 +555,6 @@
 	%\renewcommand{\thetheorem}{\arabic{chapter}.\arabic{section}.\arabic{theorem}}
 	%\renewcommand{\thetheorem}{\arabic{subsection}.\arabic{theorem}}
 	%\renewcommand{\qedsymbol}{$\blacksquare$}
+\fi
 \fi
 
