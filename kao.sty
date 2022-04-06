@@ -974,6 +974,7 @@
 \NewDocumentCommand{\margintoc}{O{\mtocshift}}{ % The first parameter is the vertical offset; by default it is \mtocshift
 	\begingroup%
     \hypersetup{allcolors=.}
+    \addtokomafont{section}{\color{black}}
 		% Move regular section and subsection to level 6 so that they won't be included and instead set let the mtoc versions take their place.
 		% Adapted from https://tex.stackexchange.com/a/133559/226693
 		\etocsetlevel{section}{6}
@@ -1114,15 +1115,15 @@
 	linktoc=all, % Toc entries and numbers links to pages
 	breaklinks=true,
 	colorlinks=true,
-	%anchorcolor=Red,
-	%citecolor=DarkOrange!70!black,
-	citecolor=OliveGreen,
-	filecolor=OliveGreen,
-	%linkcolor=Blue,
-	linkcolor=OliveGreen,
-	%menucolor=Red,
-	%runcolor=Red,
-	urlcolor=OliveGreen
+	% anchorcolor=Red,
+	% citecolor=DarkOrange!70!black,
+	% citecolor=OliveGreen,
+	% filecolor=OliveGreen,
+	% linkcolor=Blue,
+	% linkcolor=OliveGreen,
+	% menucolor=Red,
+	% runcolor=Red,
+	% urlcolor=OliveGreen
 }
 
 % Define a new color for the footnote marks
