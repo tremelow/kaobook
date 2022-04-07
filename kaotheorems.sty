@@ -33,7 +33,7 @@
 \RequirePackage{amsmath} % Improved mathematics
 \RequirePackage{amsthm} % Mathematical environments
 \RequirePackage{thmtools} % Theorem styles
-\RequirePackage[nothm]{thmbox} % Alternative theorem style
+%\RequirePackage[nothm]{thmbox} % Alternative theorem style
 \let\example\relax %Because thmbox fucks those up!?
 \let\examplename\relax
 
@@ -293,49 +293,86 @@
 \else % If not using mdframed
 \ifkaotheorems@boxed
   % Theorem styles
+  \newmdenv[
+  usetwoside=false,
+  leftmargin = .3em,
+  innerleftmargin = 1em,
+  innertopmargin = 0pt,
+  innerbottommargin = 0pt,
+  innerrightmargin = 0pt,
+  rightmargin = 0pt,
+  linewidth = 0.3pt,
+  topline = false,
+  rightline = false,
+  bottomline = false
+  ]{leftbar}
 	\declaretheoremstyle[
-		spaceabove=.6\thm@preskip,
-		spacebelow=.1\thm@postskip,
+		spaceabove=\thm@preskip,
+		spacebelow=\thm@postskip,
+    headpunct={},
+    notebraces={}{},
+    headformat=\NAME{} \NUMBER. \NOTE,
+    postheadhook=\strut\vspace{-.5em}\begin{leftbar},
+    postfoothook=\end{leftbar},
 	]{kaoplain}
+  \newmdenv[
+    usetwoside=false,  
+    leftmargin = .3em,
+    innerleftmargin = 1em,
+    innertopmargin = 0pt,
+    innerbottommargin = 0pt,
+    innerrightmargin = 0pt,
+    rightmargin = 0pt,
+    hidealllines = true,
+  ]{leftindent}
+  \declaretheoremstyle[
+    postheadspace=6pt,
+    headfont=\bfseries,
+    bodyfont=\normalfont,
+    qed=\qedsymbol,
+    postheadhook=\strut\vspace{-.5em}\begin{leftindent},
+    postfoothook=\end{leftindent},
+  ]{kaoproof}
+
 
 	% Theorems using the 'kaoplain' style
-	\theoremstyle{kaoplain}
-  \setkeys{thmbox}{
-    style=S,
-    leftmargin=1em,
-    underline=false,
-    thickness=0.3pt,
-    headstyle=\textbf{#1 #2. },
-    titlestyle=#1,
-    bodystyle=,
-    }
+  % \setkeys{thmbox}{
+  %   style=S,
+  %   leftmargin=1em,
+  %   underline=false,
+  %   thickness=0.3pt,
+  %   headstyle=\textbf{#1 #2. },
+  %   titlestyle=#1,
+  %   bodystyle=,
+  %   nocut
+  %   }
 	\declaretheorem[
 		name=Theorem,
 		refname={theorem,theorems},
 		Refname={Theorem,Theorems},
 		numberwithin=chapter,
-    thmbox={},
+    style=kaoplain,
 	]{theorem}
 	\declaretheorem[
 		name=Proposition,
 		refname={proposition,propositions},
 		Refname={Proposition,Propositions},
 		sibling=theorem,
-    thmbox={},
+    style=kaoplain,
 	]{proposition}
 	\declaretheorem[
 		name=Lemma,
 		refname={lemma,lemmas},
 		Refname={Lemma,Lemmas},
 		sibling=theorem,
-    thmbox={},
+    style=kaoplain,
 	]{lemma}
 	\declaretheorem[
 		name=Corollary,
 		refname={corollary,corollaries},
 		Refname={Corollary,Corollaries},
 		sibling=theorem,
-    thmbox={},
+    style=kaoplain,
 	]{corollary}
   \declaretheorem[
 		name=Property,
@@ -343,9 +380,8 @@
 		refname={Property,Properties},
 		Refname={Property,Properties},
 		sibling=theorem,
-    thmbox={},
+    style=kaoplain,
   ]{property}
-
 
 	\declaretheorem[
 		name=Definition,
@@ -353,7 +389,7 @@
 		Refname={Definition,Definitions},
 		numberwithin=chapter,
     sibling=theorem,
-    thmbox={},
+    style=kaoplain,
 	]{definition}
 
 	\declaretheorem[
@@ -361,36 +397,33 @@
 		refname={Assumption,Assumptions},
 		Refname={Assumption,Assumptions},
     sibling=theorem,
-    thmbox={},
+    style=kaoplain,
 	]{assumption}
 
 	\declaretheorem[
 		name=Remark,
-		refname={remark,remarks},
-		Refname={Remark,Remarks},
-		numberwithin=chapter,
-    thmbox={},
+    numbered=no,
+    style=kaoproof,
 	]{remark}
 
 	\declaretheorem[
 		name=Example,
-		refname={example,examples},
-		Refname={Example,Examples},
-		numberwithin=chapter,
+    numbered=no,
+    style=kaoproof,
 	]{example}
 
   \declaretheorem[
-		name=Exercise,
-		%refname={example,examples},
-		refname={Exercise,Exercises},
-		Refname={Exercise,Exercises},
-		numberwithin=chapter,
-		mdframed={
-			style=mdfkao,
-			backgroundcolor=\@exercisebackground,
-			%frametitlebackgroundcolor=\@theorembackground,
-		},
+		name=Example,
+    numbered=no,
+    style=kaoproof,
 	]{exercise}
+
+  \let\proof\relax
+  \declaretheorem[
+    style=kaoproof,
+    name=Proof,
+    numbered=no,
+  ]{proof}
 
 \else
 	% Theorem styles
