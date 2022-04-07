@@ -33,9 +33,6 @@
 \RequirePackage{amsmath} % Improved mathematics
 \RequirePackage{amsthm} % Mathematical environments
 \RequirePackage{thmtools} % Theorem styles
-%\RequirePackage[nothm]{thmbox} % Alternative theorem style
-\let\example\relax %Because thmbox fucks those up!?
-\let\examplename\relax
 
 %----------------------------------------------------------------------------------------
 %	STYLE DEFINITIONS
@@ -295,10 +292,10 @@
   % Theorem styles
   \newmdenv[
   usetwoside=false,
-  leftmargin = .3em,
+  leftmargin = .5em,
   innerleftmargin = 1em,
-  innertopmargin = 0pt,
-  innerbottommargin = 0pt,
+  innertopmargin = .5em,
+  innerbottommargin = .5em,
   innerrightmargin = 0pt,
   rightmargin = 0pt,
   linewidth = 0.3pt,
@@ -312,7 +309,7 @@
     headpunct={},
     notebraces={}{},
     headformat=\NAME{} \NUMBER. \NOTE,
-    postheadhook=\strut\vspace{-.5em}\begin{leftbar},
+    postheadhook=\leavevmode\vspace{-.5em}\begin{leftbar},
     postfoothook=\end{leftbar},
 	]{kaoplain}
   \newmdenv[
@@ -330,7 +327,7 @@
     headfont=\bfseries,
     bodyfont=\normalfont,
     qed=\qedsymbol,
-    postheadhook=\strut\vspace{-.5em}\begin{leftindent},
+    postheadhook=\leavevmode\begin{leftindent},
     postfoothook=\end{leftindent},
   ]{kaoproof}
 
