@@ -481,9 +481,9 @@
 % Formatting the sidenote text
 \RenewDocumentCommand\sidenotetext{ o o +m }{% number, offset, text
 	\IfNoValueOrEmptyTF{#1}{%
-		\marginnote[#2]{\thesidenote:\enskip#3}%
+		\marginnote[#2]{\textcolor{black}{\thesidenote:\enskip#3}}%
 	}{%
-		\marginnote[#2]{#1:\enskip#3}%
+		\marginnote[#2]{\textcolor{black}{#1:\enskip#3}}%
 	}%
 }
 
