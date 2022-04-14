@@ -308,6 +308,23 @@
 	\fi%
 }
 
+% Command to only print a citation in the margin, without anything in the text
+% First optional argument: vertical shif
+% Mandatory argument: citation key
+\NewDocumentCommand{\margincite}{o m}{%
+	\RenewDocumentCommand{\kaobiblio@marginnote}{m}{%
+		\marginnote[#1]{##1}%
+	}%
+	\DeclareCiteCommand{\kaobiblio@sidecite}[\kaobiblio@marginnote]{%
+	}{%
+		\formatmargincitation{\thefield{entrykey}}%
+	}{%
+		\\% separator between multiple citations
+	}{%
+	}%
+	\kaobiblio@sidecite{#2}%
+}
+
 
 %----------------------------------------------------------------------------------------
 %	LINKING THE AUTHOR'S NAME
