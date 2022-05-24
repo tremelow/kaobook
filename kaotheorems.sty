@@ -208,6 +208,18 @@
 			%frametitlebackgroundcolor=\@theorembackground,
 		},
   ]{property}
+  \declaretheorem[
+		name=Conjecture,
+		%refname={corollary,corollaries},
+		refname={Conjecture,Conjectures},
+		Refname={Conjecture,Conjectures},
+		sibling=theorem,
+		mdframed={
+			style=mdfkao,
+			backgroundcolor=\kaotheorems@corollarybackground,
+			%frametitlebackgroundcolor=\@theorembackground,
+		},
+  ]{conjecture}
 
 	% Theorems using the 'kaodefinition' style
 	\theoremstyle{kaodefinition}
@@ -379,6 +391,14 @@
 		sibling=theorem,
     style=kaoplain,
   ]{property}
+  \declaretheorem[
+		name=Conjecture,
+		%refname={corollary,corollaries},
+		refname={Conjecture,Conjectures},
+		Refname={Conjecture,Conjectures},
+		sibling=theorem,
+    style=kaoplain,
+  ]{conjecture}
 
 	\declaretheorem[
 		name=Definition,
@@ -530,6 +550,13 @@
 		Refname={Property,Properties},
 		sibling=theorem,
   ]{property}
+  \declaretheorem[
+		name=Conjecture,
+		%refname={corollary,corollaries},
+		refname={Conjecture,Conjectures},
+		Refname={Conjecture,Conjectures},
+		sibling=theorem,
+  ]{conjecture}
 
 	% Theorems using the 'kaodefinition' style
 	\theoremstyle{kaodefinition}
